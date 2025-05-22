@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulário de Cadastro</h1>
+        <form id="cadastroForm">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+            
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="Dealer">Dealer</option>
+            </select>
+            
+            <label for="nomeCompleto">Nome Completo:</label>
+            <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <button type="button" onclick="salvarDados()">Salvar</button>
+            <button type="button" onclick="limparLog()">Limpar Log</button>
+        </form>
+        
+        <h2>Log de Usuários Preenchidos</h2>
+        <div id="log"></div>
+    </form>
+ 
+    
+    <script>
+        function salvarDados() {
+            var usuario = document.getElementById('usuario').value;
+            var tipo = document.getElementById('tipo').value;
+            var nomeCompleto = document.getElementById('nomeCompleto').value;
+            var email = document.getElementById('email').value;
+            
+            var log = document.getElementById('log');
+            log.innerHTML += 'Usuário: ' + usuario + ', Tipo: ' + tipo + ', Nome Completo: ' + nomeCompleto + ', E-mail: ' + email + '<br>';
+            
+            // Limpa os campos do formulário
+            document.getElementById('cadastroForm').reset();
+        }
+        
+        function limparLog() {
+            var log = document.getElementById('log');
+            log.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
